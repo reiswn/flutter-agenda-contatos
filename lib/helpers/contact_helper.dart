@@ -144,4 +144,10 @@ class Contact {
     ch.saveContact(this);
   }
 
+  void update(){
+    ContactHelper ch = ContactHelper();
+
+    ch.updateContact(this);
+  }
+
 }
