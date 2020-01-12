@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
     if(returnedContact != null){
       if(contact != null){
         await helper.updateContact(returnedContact);
-        _getAllContacts();
       } else {
         await helper.saveContact(returnedContact);
       }
+      _getAllContacts();
     }
   }
 
