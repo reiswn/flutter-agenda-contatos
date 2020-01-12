@@ -24,6 +24,7 @@ class _ContactPageState extends State<ContactPage> {
   bool _userEdited = false;
 
   Contact _editedContact;
+  ContactHelper _helper = ContactHelper();
 
   @override
   void initState() {
@@ -54,6 +55,7 @@ class _ContactPageState extends State<ContactPage> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: (){
+              //todo: implement validation for all fields
               if(_editedContact.name != null && _editedContact.name.isNotEmpty) {
                 Navigator.pop(context, _editedContact);
               } else {
@@ -74,9 +76,8 @@ class _ContactPageState extends State<ContactPage> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: _editedContact.img != null ?
-                          FileImage(File(_editedContact.img)) :
-                          AssetImage("images/default-user.jpg")
+                          image: _helper.isBlankOrNull(_editedContact.img) ?
+                          AssetImage("images/default-user.jpg") : FileImage(File(_editedContact.img))
                       ),
                     ),
                   ),

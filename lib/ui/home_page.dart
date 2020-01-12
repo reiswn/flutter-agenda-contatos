@@ -52,7 +52,10 @@ class _HomePageState extends State<HomePage> {
 
   Widget _contactCard(BuildContext context, int index){
     return GestureDetector(
-      onTap: (){_showContactPage(contact: contacts[index]);},
+      onTap: (){
+        _showContactPage(contact: contacts[index]);
+        //_showOptions();
+      },
       child: Card(
         child: Padding(
           padding: EdgeInsets.all(10.0),
@@ -64,9 +67,8 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: contacts[index].img != null ?
-                    FileImage(File(contacts[index].img)) :
-                    AssetImage("images/default-user.jpg")
+                    image: helper.isBlankOrNull(contacts[index].img) ?
+                    AssetImage("images/default-user.jpg") : FileImage(File(contacts[index].img))
                   ),
                 ),
               ),

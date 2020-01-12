@@ -96,6 +96,16 @@ class ContactHelper {
     Database dbContact = await db;
     dbContact.close();
   }
+
+  bool isBlankOrNull(String str){
+    if(str == null) {
+      return true;
+    } else if(str.isEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 // id name email phone img
