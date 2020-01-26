@@ -4,6 +4,7 @@ A new Flutter project.
 
 # flutter-agenda-contatos
 Agenda de contatos feita em Flutter para fins de aprendizagem
+(Contacts made in Flutter for learning purposes)
 
 ## Getting Started
 
